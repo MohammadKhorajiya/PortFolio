@@ -12,7 +12,7 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
     phone: "+91 87802-70802",
     email: "khorajiyamohammad724@gmail.com",
     github: "https://github.com/MohammadKhorajiya",
-    linkedin: "https://linkedin.com/in/mohammadkhorajiya",
+    linkedin: "https://www.linkedin.com/in/mohammadkhorajiya724",
     location: "India",
     resumeUrl: "/resume.pdf",
     stats: [
