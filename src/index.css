@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --bg-primary: #FAF6F0;
+  --bg-secondary: #F3ECE2;
+  --card-bg: #FFFFFF;
+  --text-dark: #2B2420;
+  --text-muted: #6B5E55;
+  --accent-green: #10B981;
+  --button-dark: #2D2622;
+  --button-dark-hover: #1E1815;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9CFC4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BEB1A3;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(45, 38, 34, 0.15);
+  color: #2D2622;
+}
+
+/* Glass & Card Styling */
+.farhan-nav-pill {
+  background: rgba(247, 242, 235, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(215, 203, 190, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(45, 38, 34, 0.08);
+}
+
+.farhan-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid rgba(225, 215, 202, 0.6);
+  box-shadow: 0 12px 35px -10px rgba(45, 38, 34, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.farhan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -12px rgba(45, 38, 34, 0.1);
+}
+
+.farhan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2D2622;
+  box-shadow: 0 4px 15px rgba(45, 38, 34, 0.04);
+  border: 1px solid #EBE3D8;
+}
+
+.farhan-btn-primary {
+  background-color: #2D2622;
+  color: #FFFFFF;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.farhan-btn-primary:hover {
+  background-color: #1E1815;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 38, 34, 0.2);
+}
+
+.farhan-btn-secondary {
+  background-color: transparent;
+  color: #2D2622;
+  border: 1.5px solid #2D2622;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.farhan-btn-secondary:hover {
+  background-color: #2D2622;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
