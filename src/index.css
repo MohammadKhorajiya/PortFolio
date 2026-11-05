@@ -4,18 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
-  --bg-primary: #FAF6F0;
-  --bg-secondary: #F3ECE2;
-  --card-bg: #FFFFFF;
-  --text-dark: #2B2420;
-  --text-muted: #6B5E55;
-  --accent-green: #10B981;
-  --button-dark: #2D2622;
-  --button-dark-hover: #1E1815;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -23,106 +11,71 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-primary);
-  color: var(--text-dark);
+  background-color: #070B0A;
+  color: #E8EDEA;
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Subtle engineering grid backdrop */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 55%, transparent 100%);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6F0;
+  background: #070B0A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9CFC4;
-  border-radius: 4px;
+  background: #1C2A25;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #BEB1A3;
+  background: #2A3B34;
 }
 
-/* Custom Selection */
 ::selection {
-  background: rgba(45, 38, 34, 0.15);
-  color: #2D2622;
+  background: rgba(16, 185, 129, 0.35);
+  color: #F2FFF9;
 }
 
-/* Glass & Card Styling */
-.farhan-nav-pill {
-  background: rgba(247, 242, 235, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(215, 203, 190, 0.6);
-  box-shadow: 0 10px 30px -10px rgba(45, 38, 34, 0.08);
-}
+@layer components {
+  .kicker {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-mint-bright bg-mint/10 border border-mint/25 rounded-full px-4 py-1.5;
+  }
 
-.farhan-card {
-  background: #FFFFFF;
-  border-radius: 28px;
-  border: 1px solid rgba(225, 215, 202, 0.6);
-  box-shadow: 0 12px 35px -10px rgba(45, 38, 34, 0.05);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-xl bg-mint text-[#04110B] font-bold text-sm px-7 py-3.5 transition-all duration-200 hover:bg-mint-bright hover:-translate-y-0.5 shadow-[0_0_24px_rgba(16,185,129,0.25)];
+  }
 
-.farhan-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px -12px rgba(45, 38, 34, 0.1);
-}
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/15 text-[#E8EDEA] font-bold text-sm px-7 py-3.5 transition-all duration-200 hover:border-mint/60 hover:text-mint-bright hover:-translate-y-0.5;
+  }
 
-.farhan-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #2D2622;
-  box-shadow: 0 4px 15px rgba(45, 38, 34, 0.04);
-  border: 1px solid #EBE3D8;
-}
+  .glass-card {
+    @apply bg-white/[0.03] border border-white/[0.07] rounded-2xl backdrop-blur-sm transition-all duration-300;
+  }
 
-.farhan-btn-primary {
-  background-color: #2D2622;
-  color: #FFFFFF;
-  border-radius: 50px;
-  padding: 14px 28px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+  .chip {
+    @apply inline-flex items-center gap-1.5 font-mono text-[11px] text-[#9FB6AC] bg-white/[0.04] border border-white/10 rounded-full px-3 py-1;
+  }
 
-.farhan-btn-primary:hover {
-  background-color: #1E1815;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(45, 38, 34, 0.2);
-}
+  .text-gradient {
+    @apply bg-gradient-to-r from-mint-bright via-mint-teal to-mint-cyan bg-clip-text text-transparent;
+  }
 
-.farhan-btn-secondary {
-  background-color: transparent;
-  color: #2D2622;
-  border: 1.5px solid #2D2622;
-  border-radius: 50px;
-  padding: 14px 28px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.farhan-btn-secondary:hover {
-  background-color: #2D2622;
-  color: #FFFFFF;
-  transform: translateY(-2px);
+  .field-input {
+    @apply w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-sm text-[#E8EDEA] placeholder-[#5C6E66] focus:outline-none focus:border-mint/60 focus:bg-white/[0.06] transition-colors;
+  }
 }

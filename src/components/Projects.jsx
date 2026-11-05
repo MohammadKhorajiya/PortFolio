@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Terminal, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ArrowUpRight, Boxes } from 'lucide-react';
 import { Github } from './SocialIcons';
 import { portfolioData } from '../data/portfolio';
 
@@ -8,88 +8,94 @@ export default function Projects() {
   const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="py-20">
-      <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
-          Featured Works
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2D2622] tracking-tight">
-          Recent Projects & Systems
-        </h2>
-        <p className="text-base text-[#6B5E55]">
-          Handcrafted Java backend applications, RESTful microservices, and AI integrations.
-        </p>
-      </div>
+    <section id="projects" className="py-24 scroll-mt-24">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4 mb-14"
+        >
+          <span className="kicker"><Boxes className="w-3 h-3" /> Selected Work</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+            Backend <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-sm text-[#8B9C94] max-w-xl">
+            Secure, tested and deployed Spring Boot APIs — from AI service integration to async task orchestration.
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-3xl p-7 border border-[#E7E0D6] shadow-md hover:shadow-xl transition-all flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#E7E0D6]">
-                <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                  {project.subtitle}
-                </span>
-                <span className="text-xs font-mono text-[#6B5E55]">{project.period}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {projects.map((project, idx) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="glass-card p-7 sm:p-8 flex flex-col hover:border-mint/30 hover:bg-white/[0.05] hover:shadow-[0_18px_50px_-18px_rgba(16,185,129,0.25)] group"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-xl font-extrabold text-[#F2F6F3] group-hover:text-mint-bright transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.featured && (
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-[#F2C464] bg-[#F2C464]/10 border border-[#F2C464]/25 rounded-full px-2 py-0.5">
+                        featured
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[13px] font-semibold text-[#9FB6AC]">{project.subtitle}</p>
+                </div>
+                <span className="font-mono text-[10px] text-[#6E817A] whitespace-nowrap mt-1">{project.period}</span>
               </div>
 
-              <h3 className="text-2xl font-bold text-[#2D2622] mb-2">{project.title}</h3>
-              <p className="text-sm text-[#6B5E55] leading-relaxed mb-6">
-                {project.description}
-              </p>
+              <p className="text-[13.5px] text-[#B9C7C0] leading-relaxed mt-4">{project.description}</p>
 
-              {project.highlights && (
-                <div className="space-y-2 mb-6">
-                  {project.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-[#2D2622]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
-                      <span>{h}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <ul className="mt-4 space-y-2 flex-1">
+                {project.highlights.map((h, i) => (
+                  <li key={i} className="flex gap-2.5 text-[13px] text-[#8B9C94] leading-relaxed">
+                    <span className="font-mono text-mint/70 shrink-0">▸</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mt-5">
                 {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-[#FAF6F0] rounded-full text-xs font-semibold text-[#2D2622] border border-[#E7E0D6]"
-                  >
-                    {tech}
-                  </span>
+                  <span key={tech} className="chip">{tech}</span>
                 ))}
               </div>
-            </div>
 
-            <div className="pt-4 border-t border-[#E7E0D6] flex items-center justify-between gap-4">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="farhan-btn-primary py-2.5 px-5 text-xs w-full text-center"
-              >
-                <Github className="w-4 h-4 text-white" />
-                <span>Code Repository</span>
-              </a>
-              {project.liveUrl && (
+              <div className="flex items-center gap-5 pt-6 mt-6 border-t border-white/[0.07]">
                 <a
-                  href={project.liveUrl}
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="farhan-btn-secondary py-2.5 px-4 text-xs"
+                  className="inline-flex items-center gap-2 text-[13px] font-bold text-[#D5DEDA] hover:text-mint-bright transition-colors"
                 >
-                  <ExternalLink className="w-4 h-4" />
+                  <Github className="w-4 h-4" />
+                  <span>Source</span>
                 </a>
-              )}
-            </div>
-          </motion.div>
-        ))}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#D5DEDA] hover:text-mint-cyan transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>{project.apiDocs || 'Live'}</span>
+                  </a>
+                )}
+                <ArrowUpRight className="w-4 h-4 text-[#3A4A43] ml-auto group-hover:text-mint/60 transition-colors" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,92 +1,108 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 export default function Experience() {
-  const { timeline } = portfolioData;
+  const { timeline, certifications } = portfolioData;
 
   return (
-    <section id="experience" className="py-20">
-      <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
-          My Journey
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2D2622] tracking-tight">
-          Experience & Education
-        </h2>
-        <p className="text-base text-[#6B5E55]">
-          A timeline of my professional growth, internship work, and academic degree.
-        </p>
-      </div>
+    <section id="experience" className="py-24 scroll-mt-24">
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4 mb-16 text-center"
+        >
+          <span className="kicker">Career Timeline</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+            Experience &amp; <span className="text-gradient">Education</span>
+          </h2>
+        </motion.div>
 
-      <div className="max-w-4xl mx-auto space-y-8">
-        {timeline.map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-3xl p-8 border border-[#E7E0D6] shadow-md hover:shadow-xl transition-all"
-          >
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#F7F2EB] border border-[#E7E0D6] flex items-center justify-center text-[#2D2622]">
-                  {item.type === 'experience' ? (
-                    <Briefcase className="w-6 h-6 text-emerald-600" />
-                  ) : (
-                    <GraduationCap className="w-6 h-6 text-amber-600" />
-                  )}
+        {/* Timeline */}
+        <div className="relative">
+          <div className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-mint/60 via-mint/20 to-transparent" />
+
+          <div className="space-y-10">
+            {timeline.map((item, idx) => {
+              const isExperience = item.type === 'experience';
+              const Icon = isExperience ? Briefcase : GraduationCap;
+              return (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="relative pl-12 md:pl-20"
+                >
+                  {/* Node */}
+                  <div className="absolute left-0 md:left-[7px] top-1 w-8 h-8 rounded-xl bg-[#0B1210] border border-mint/40 flex items-center justify-center text-mint-bright shadow-[0_0_16px_rgba(16,185,129,0.25)]">
+                    <Icon className="w-4 h-4" />
+                  </div>
+
+                  <div className="glass-card p-6 sm:p-7 hover:border-mint/25">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-1">
+                      <span className="font-mono text-[11px] text-mint-bright bg-mint/10 border border-mint/20 rounded-full px-3 py-1">
+                        {item.period}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-xs text-[#8B9C94]">
+                        <MapPin className="w-3 h-3" /> {item.location}
+                      </span>
+                      {item.gpa && (
+                        <span className="font-mono text-[11px] text-[#F2C464]">{item.gpa}</span>
+                      )}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-[#F2F6F3] mt-2">{item.role}</h3>
+                    <p className="text-sm font-semibold text-[#9FB6AC] mt-0.5">{item.organization}</p>
+
+                    <ul className="mt-4 space-y-2.5">
+                      {item.highlights.map((h, i) => (
+                        <li key={i} className="flex gap-3 text-[13.5px] text-[#B9C7C0] leading-relaxed">
+                          <span className="font-mono text-mint/70 shrink-0">▸</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2 mt-5">
+                      {item.skills.map((skill) => (
+                        <span key={skill} className="chip">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-14"
+        >
+          <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#6E817A] mb-4 pl-1">Certifications</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.map((cert) => (
+              <div key={cert.id} className="glass-card p-5 flex items-start gap-4 hover:border-mint/25">
+                <div className="w-10 h-10 rounded-xl bg-[#F2C464]/10 border border-[#F2C464]/25 flex items-center justify-center text-[#F2C464] shrink-0">
+                  <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#2D2622]">{item.role}</h3>
-                  <p className="text-sm font-semibold text-emerald-700">{item.organization}</p>
+                  <p className="font-bold text-sm text-[#E8EDEA] leading-snug">{cert.title}</p>
+                  <p className="text-xs text-[#8B9C94] mt-1">{cert.issuer} · {cert.date}</p>
                 </div>
               </div>
-
-              <div className="flex items-center gap-4 text-xs font-semibold text-[#6B5E55] bg-[#F7F2EB] px-4 py-2 rounded-full border border-[#E7E0D6]">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5" />
-                  {item.period}
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                  {item.location}
-                </span>
-              </div>
-            </div>
-
-            <p className="text-sm text-[#6B5E55] leading-relaxed mb-4">
-              {item.description}
-            </p>
-
-            {item.highlights && (
-              <ul className="space-y-2 mb-4">
-                {item.highlights.map((h, i) => (
-                  <li key={i} className="text-xs text-[#2D2622] flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {item.skills && (
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E7E0D6]">
-                {item.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-[#FAF6F0] rounded-full text-xs font-semibold text-[#2D2622] border border-[#E7E0D6]"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        ))}
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

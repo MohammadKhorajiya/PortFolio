@@ -1,9 +1,9 @@
 export const portfolioData = {
   personal: {
     name: "Mohammad Khorajiya",
-    role: "Java Full-Stack Developer",
-    headline: "I build fast, scalable applications using Java, Spring Boot, React.js, and MongoDB.",
-    shortIntro: "I build fast, scalable applications using Java, Spring Boot, React.js, and MongoDB.",
+    role: "Java Backend Developer",
+    headline: "I build secure, scalable REST APIs with Java, Spring Boot and Spring Security.",
+    shortIntro: "Java Backend Developer crafting secure REST APIs with Spring Boot, Spring Security, MongoDB and Redis.",
     about: `I am a Java Backend Developer with hands-on experience developing secure, high-performance REST APIs using Java, Spring Boot, Spring Security, MongoDB, and Redis.
 
 I specialize in architecting stateless JWT authentication, Role-Based Access Control (RBAC), thread-safe asynchronous processing, and external API integrations using Spring WebClient with resilient retry and rate-limiting patterns.
@@ -15,26 +15,27 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
     linkedin: "https://www.linkedin.com/in/mohammadkhorajiya724",
     location: "India",
     resumeUrl: "/resume.pdf",
+    availability: "Open to Java Backend roles",
     stats: [
       { label: "Core Stack", value: "Java & Spring Boot" },
-      { label: "Security Focus", value: "JWT & RBAC" },
-      { label: "Databases", value: "MongoDB & Redis" },
-      { label: "Test Coverage", value: "90%+ JUnit/Mockito" }
+      { label: "Security", value: "JWT & RBAC" },
+      { label: "Data Layer", value: "MongoDB & Redis" },
+      { label: "Test Coverage", value: "90%+ JUnit / Mockito" }
     ]
   },
 
   navLinks: [
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
     { name: "Resume", href: "#resume" },
     { name: "Contact", href: "#contact" }
   ],
 
   skillCategories: [
     {
-      name: "Languages",
+      name: "Languages & Core Java",
       description: "Core programming & language features",
       skills: [
         { name: "Java 8+", level: 92, icon: "Code2", primary: true },
@@ -47,7 +48,7 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
     },
     {
       name: "Backend Frameworks",
-      description: "Server-side microservices & REST architecture",
+      description: "Server-side services & REST architecture",
       skills: [
         { name: "Spring Boot", level: 92, icon: "Server", primary: true },
         { name: "Spring Security", level: 88, icon: "ShieldCheck", primary: true },
@@ -65,8 +66,8 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
       ]
     },
     {
-      name: "Tools & Testing",
-      description: "Build tools, API documentation & cloud deployment",
+      name: "Testing & Tooling",
+      description: "Build tools, API documentation & deployment",
       skills: [
         { name: "JUnit 5 & Mockito", level: 88, icon: "CheckCircle2", primary: true },
         { name: "Maven", level: 85, icon: "Package" },
@@ -89,12 +90,12 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
       description: "A resilient Spring Boot backend integrating Generative AI APIs with prompt processing, sanitization, non-blocking HTTP WebClient communication, and structured response handling.",
       technologies: ["Java", "Spring Boot", "REST APIs", "Spring WebClient", "Generative AI", "Render"],
       githubUrl: "https://github.com/MohammadKhorajiya/bhadas-ai",
-      liveUrl: null,
-      apiDocs: "WebClient / REST",
+      liveUrl: "https://bhadas-ai.vercel.app/",
+      apiDocs: null,
       featured: true,
       highlights: [
-        "Built a Spring Boot backend integrating Generative AI APIs with prompt processing, sanitization, and structured response handling.",
-        "Implemented non-blocking external API communication using Spring WebClient with retry and rate-limiting mechanisms."
+        "Integrated Generative AI APIs with prompt processing, sanitization, and structured response handling.",
+        "Implemented non-blocking external API communication using Spring WebClient with retry and rate-limiting."
       ]
     },
     {
@@ -102,31 +103,31 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
       title: "JournalApp",
       subtitle: "Secure Journal Management API",
       period: "Jan 2026 – Present",
-      description: "A secure RESTful backend featuring stateless JWT authentication, role-based authorization, MongoDB persistence, and Redis caching to achieve ultra-fast API response times.",
-      technologies: ["Java", "Spring Boot", "Spring Security", "MongoDB", "Redis", "JUnit 5", "Mockito", "Swagger / OpenAPI"],
+      description: "A secure RESTful backend featuring stateless JWT authentication, role-based access control, MongoDB persistence, and Redis caching for fast API response times.",
+      technologies: ["Java", "Spring Boot", "Spring Security", "MongoDB", "Redis", "JUnit 5", "Mockito"],
       githubUrl: "https://github.com/MohammadKhorajiya/JournalApp",
-      liveUrl: null,
-      apiDocs: "Swagger / OpenAPI",
+      liveUrl: "https://journalapp-7skc.onrender.com/swagger-ui/index.html",
+      apiDocs: "Swagger UI",
       featured: true,
       highlights: [
-        "Developed a secure REST API with JWT authentication and RBAC using Spring Boot and Spring Security.",
-        "Integrated MongoDB and Redis caching, reducing backend latency by 40%+, with 90%+ automated test coverage using JUnit and Mockito."
+        "Developed a secure REST API with JWT authentication and role-based access control.",
+        "Integrated MongoDB and Redis caching with automated testing using JUnit 5 and Mockito."
       ]
     },
     {
       id: "project-task-assignment",
       title: "Task Assignment System",
-      subtitle: "Asynchronous Task Management API",
+      subtitle: "Asynchronous Task API",
       period: "Apr 2026 – Present",
       description: "A RESTful task assignment engine supporting thread-safe task synchronization, JWT security, and asynchronous email notifications leveraging Spring @Async.",
-      technologies: ["Java", "Spring Boot", "Spring Security", "MongoDB", "JavaMailSender", "ConcurrentHashMap", "Swagger / OpenAPI"],
+      technologies: ["Java", "Spring Boot", "Spring Security", "MongoDB", "JavaMailSender", "@Async"],
       githubUrl: "https://github.com/MohammadKhorajiya/task-assignment",
-      liveUrl: null,
-      apiDocs: "Swagger / OpenAPI",
-      featured: true,
+      liveUrl: "https://task-assignment-mgvz.onrender.com/swagger-ui/index.html",
+      apiDocs: "Swagger UI",
+      featured: false,
       highlights: [
-        "Built a RESTful task-assignment system with JWT authentication and role-based authorization using Spring Security.",
-        "Implemented thread-safe task synchronization with ConcurrentHashMap and asynchronous email notifications using Spring @Async."
+        "Developed a task-assignment REST API with JWT authentication and role-based authorization.",
+        "Implemented thread-safe synchronization using ConcurrentHashMap and asynchronous email notifications using Spring @Async."
       ]
     }
   ],
@@ -139,11 +140,11 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
       organization: "Pulse Circle",
       period: "Mar 2026 – May 2026",
       location: "Remote",
-      description: "Developed secure RESTful backend services using Java, Spring Boot, and Spring Security with stateless JWT authentication and role-based authorization.",
+      description: "Developed secure REST APIs using Java, Spring Boot, and Spring Security with stateless JWT authentication and role-based authorization.",
       highlights: [
-        "Developed secure RESTful backend services using Java, Spring Boot, and Spring Security with stateless JWT authentication and role-based authorization.",
-        "Designed MongoDB data-access layers using Spring Data MongoDB, including indexing and aggregation-based queries.",
-        "Developed unit and integration tests using JUnit 5 and Mockito while supporting API testing, SonarQube analysis, and Render cloud deployment."
+        "Developed secure REST APIs using Java, Spring Boot, and Spring Security with stateless JWT authentication and role-based authorization.",
+        "Designed MongoDB data-access layers using Spring Data MongoDB, including indexing and aggregation queries.",
+        "Developed unit and integration tests using JUnit 5 and Mockito; supported API testing, SonarQube analysis, and Render deployment."
       ],
       skills: ["Java", "Spring Boot", "Spring Security", "MongoDB", "JUnit 5", "Mockito", "SonarQube", "Render"]
     },
@@ -154,11 +155,11 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
       organization: "Hemchandracharya North Gujarat University (HNGU)",
       period: "2023 – 2026",
       location: "Gujarat, India",
-      gpa: "CGPA: 6.47",
-      description: "Comprehensive coursework in Computer Applications, Object-Oriented Programming, Data Structures, Database Systems, Software Engineering, and Web Development.",
+      gpa: "CGPA 6.47",
+      description: "Coursework across Java development, data structures, database systems, and software engineering.",
       highlights: [
-        "Focused on Object-Oriented Programming (OOP) & Java Development",
-        "Graduated with CGPA: 6.47"
+        "Focused on Object-Oriented Programming (OOP) & Java development",
+        "Graduated with CGPA 6.47"
       ],
       skills: ["Core Java", "Data Structures", "Database Management", "Software Engineering"]
     }
@@ -168,9 +169,9 @@ With a strong technical foundation in Core Java (OOP, Multithreading, Collection
     {
       id: "cert-1",
       title: "Java Backend Development Internship Certification",
-      issuer: "Pulse Circle --- Remote",
+      issuer: "Pulse Circle — Remote",
       date: "2026",
-      credentialUrl: "#"
+      credentialUrl: null
     }
   ]
 };

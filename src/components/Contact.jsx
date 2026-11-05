@@ -1,136 +1,150 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Github, Linkedin } from './SocialIcons';
 import { portfolioData } from '../data/portfolio';
 
 export default function Contact() {
   const { personal } = portfolioData;
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
   };
 
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personal.email}`;
+  const infoCards = [
+    { icon: Mail, label: 'Email', value: personal.email, href: `mailto:${personal.email}` },
+    { icon: Phone, label: 'Phone', value: personal.phone, href: `tel:${personal.phone}` },
+    { icon: MapPin, label: 'Location', value: personal.location, href: null },
+  ];
 
   return (
-    <section id="contact" className="py-24">
-      <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
-          Get In Touch
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2D2622] tracking-tight">
-          Let's Build Something Amazing.
-        </h2>
-        <p className="text-base text-[#6B5E55]">
-          Interested in working together or hiring a Java backend specialist? Send me a message!
-        </p>
-      </div>
+    <section id="contact" className="py-24 scroll-mt-24">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4 mb-14 text-center"
+        >
+          <span className="kicker">Get In Touch</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+            Let's build something <span className="text-gradient">reliable</span>.
+          </h2>
+          <p className="text-sm text-[#8B9C94] max-w-xl mx-auto">
+            Hiring for a backend role or need a Spring Boot API built right? My inbox is open.
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
-        {/* Left Info Column */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white rounded-3xl p-8 border border-[#E7E0D6] shadow-md space-y-6">
-            <h3 className="text-xl font-bold text-[#2D2622]">Contact Details</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Info column */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-5 space-y-4"
+          >
+            {infoCards.map(({ icon: Icon, label, value, href }) => {
+              const Wrapper = href ? 'a' : 'div';
+              return (
+                <Wrapper
+                  key={label}
+                  {...(href ? { href, target: href.startsWith('http') ? '_blank' : undefined, rel: 'noopener noreferrer' } : {})}
+                  className="glass-card p-5 flex items-center gap-4 hover:border-mint/30 hover:bg-white/[0.05] transition-all group block"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-mint/10 border border-mint/25 flex items-center justify-center text-mint-bright group-hover:scale-110 transition-transform shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A]">{label}</div>
+                    <div className="text-sm font-bold text-[#E8EDEA] truncate">{value}</div>
+                  </div>
+                </Wrapper>
+              );
+            })}
 
-            <div className="space-y-4">
+            <div className="glass-card p-5 flex items-center gap-4">
               <a
-                href={gmailComposeUrl}
+                href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6] hover:border-[#2D2622] transition-all group"
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#9FB6AC] hover:text-mint-bright hover:border-mint/40 transition-all"
+                aria-label="GitHub"
               >
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#2D2622] group-hover:bg-[#2D2622] group-hover:text-white transition-colors">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-[#6B5E55] font-semibold">Direct Email</div>
-                  <div className="text-sm font-bold text-[#2D2622]">{personal.email}</div>
-                </div>
+                <Github className="w-5 h-5" />
               </a>
-
               <a
-                href={`tel:${personal.phone}`}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6] hover:border-[#2D2622] transition-all group"
+                href={personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#9FB6AC] hover:text-mint-bright hover:border-mint/40 transition-all"
+                aria-label="LinkedIn"
               >
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#2D2622] group-hover:bg-[#2D2622] group-hover:text-white transition-colors">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-[#6B5E55] font-semibold">Phone</div>
-                  <div className="text-sm font-bold text-[#2D2622]">{personal.phone}</div>
-                </div>
+                <Linkedin className="w-5 h-5" />
               </a>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A] ml-1">Elsewhere</span>
+            </div>
+          </motion.div>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6]">
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#2D2622]">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-[#6B5E55] font-semibold">Location</div>
-                  <div className="text-sm font-bold text-[#2D2622]">{personal.location}</div>
-                </div>
+          {/* Form column */}
+          <motion.form
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            onSubmit={handleSubmit}
+            className="lg:col-span-7 glass-card p-7 sm:p-8 space-y-5 hover:border-mint/25"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Name</label>
+                <input
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Your name"
+                  className="field-input"
+                />
+              </div>
+              <div>
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Email</label>
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="you@company.com"
+                  className="field-input"
+                />
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Right Form Column */}
-        <div className="lg:col-span-7">
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white rounded-3xl p-8 border border-[#E7E0D6] shadow-md space-y-5"
-          >
-            <div>
-              <label className="block text-xs font-bold text-[#2D2622] uppercase tracking-wider mb-2">
-                Your Name
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="e.g. Sarah Jenkins"
-                className="w-full px-4 py-3 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6] text-sm text-[#2D2622] focus:outline-none focus:border-[#2D2622] transition-colors"
-              />
-            </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#2D2622] uppercase tracking-wider mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="e.g. sarah@example.com"
-                className="w-full px-4 py-3 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6] text-sm text-[#2D2622] focus:outline-none focus:border-[#2D2622] transition-colors"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#2D2622] uppercase tracking-wider mb-2">
-                Message
-              </label>
+              <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Message</label>
               <textarea
                 required
-                rows={4}
-                placeholder="Tell me about your project, backend requirements, or opportunity..."
-                className="w-full px-4 py-3 rounded-2xl bg-[#FAF6F0] border border-[#E7E0D6] text-sm text-[#2D2622] focus:outline-none focus:border-[#2D2622] transition-colors resize-none"
+                rows={5}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                placeholder="Tell me about the role or project..."
+                className="field-input resize-none"
               />
             </div>
 
-            <button type="submit" className="w-full farhan-btn-primary py-4 shadow-md">
+            <button type="submit" className="btn-primary w-full py-4">
               <Send className="w-4 h-4" />
               <span>Send Message</span>
             </button>
-
-            {submitted && (
-              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Thank you! Your message has been sent successfully.</span>
-              </div>
-            )}
-          </form>
+            <p className="text-center font-mono text-[10px] text-[#5C6E66]">
+              Opens your mail app addressed to {personal.email}
+            </p>
+          </motion.form>
         </div>
       </div>
     </section>
