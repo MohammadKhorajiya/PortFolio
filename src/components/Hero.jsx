@@ -15,10 +15,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-mint/[0.08] border border-mint/25 text-mint-bright text-xs font-semibold"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-mint/[0.07] border border-mint/25 text-mint-bright text-xs font-semibold"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint-bright opacity-75" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-60" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-mint" />
             </span>
             {personal.availability}
@@ -29,11 +29,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight leading-[1.05] text-[#F2F6F3]">
+            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight leading-[1.05] text-ink">
               Mohammad <span className="text-gradient">Khorajiya</span>
             </h1>
-            <p className="font-mono text-base sm:text-lg text-[#9FB6AC] mt-4">
-              <span className="text-mint-bright">&gt;</span> {personal.role}
+            <p className="font-mono text-base sm:text-lg text-ink-muted mt-4">
+              <span className="text-mint">&gt;</span> {personal.role}
             </p>
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg text-[#B9C7C0] max-w-xl leading-relaxed"
+            className="text-base sm:text-lg text-ink-soft max-w-xl leading-relaxed"
           >
             {personal.headline} Built on Spring Security, JWT &amp; RBAC, backed by MongoDB and Redis, and shipped with 90%+ automated test coverage.
           </motion.p>
@@ -74,8 +74,8 @@ export default function Hero() {
           >
             {personal.stats.map((stat) => (
               <div key={stat.label} className="border-l-2 border-mint/40 pl-3">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A]">{stat.label}</div>
-                <div className="text-[13px] font-bold text-[#E8EDEA] mt-0.5">{stat.value}</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">{stat.label}</div>
+                <div className="text-[13px] font-bold text-ink mt-0.5">{stat.value}</div>
               </div>
             ))}
           </motion.div>
@@ -90,37 +90,37 @@ export default function Hero() {
             className="relative w-full max-w-lg"
           >
             {/* Floating tech chips */}
-            <div className="absolute -top-5 -left-3 sm:-left-8 chip !bg-[#0B1210] animate-float shadow-lg z-10">
+            <div className="absolute -top-5 -left-3 sm:-left-8 chip !bg-white shadow-md z-10 animate-float">
               <span className="w-1.5 h-1.5 rounded-full bg-mint" /> Spring Boot
             </div>
-            <div className="absolute -bottom-5 right-2 sm:right-6 chip !bg-[#0B1210] animate-float shadow-lg z-10" style={{ animationDelay: '1.4s' }}>
+            <div className="absolute -bottom-5 right-2 sm:right-6 chip !bg-white shadow-md z-10 animate-float" style={{ animationDelay: '1.4s' }}>
               <span className="w-1.5 h-1.5 rounded-full bg-mint-cyan" /> JWT · RBAC
             </div>
-            <div className="absolute top-1/2 -right-2 sm:-right-8 chip !bg-[#0B1210] animate-float shadow-lg z-10 hidden sm:flex" style={{ animationDelay: '2.2s' }}>
+            <div className="absolute top-1/2 -right-2 sm:-right-8 chip !bg-white shadow-md z-10 hidden sm:flex animate-float" style={{ animationDelay: '2.2s' }}>
               <span className="w-1.5 h-1.5 rounded-full bg-mint-teal" /> Redis Cache
             </div>
 
             {/* Terminal window */}
-            <div className="glass-card !bg-[#0B1210]/95 rounded-2xl overflow-hidden shadow-[0_24px_70px_-20px_rgba(0,0,0,0.7)] border-white/[0.09]">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.07] bg-white/[0.02]">
+            <div className="glass-card rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(35,41,37,0.25)]">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-paper-line bg-paper-soft/70">
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-                <span className="ml-3 font-mono text-[11px] text-[#6E817A]">mohammad@backend — REST API</span>
+                <span className="ml-3 font-mono text-[11px] text-ink-faint">mohammad@backend — REST API</span>
               </div>
-              <div className="p-5 font-mono text-[12.5px] leading-relaxed text-[#B9C7C0]">
+              <div className="p-5 font-mono text-[12.5px] leading-relaxed text-ink-soft">
                 <p>
-                  <span className="text-mint-bright">$</span> curl -s https://journalapp.onrender.com/api/health
+                  <span className="text-mint font-semibold">$</span> curl -s https://journalapp.onrender.com/api/health
                 </p>
-                <p className="mt-3 text-[#6E817A]">{'{'}</p>
-                <p className="pl-4"><span className="text-mint-cyan">"status"</span>: <span className="text-[#8EF0B4]">"UP"</span>,</p>
-                <p className="pl-4"><span className="text-mint-cyan">"auth"</span>: <span className="text-[#8EF0B4]">"JWT + RBAC"</span>,</p>
-                <p className="pl-4"><span className="text-mint-cyan">"storage"</span>: <span className="text-[#8EF0B4]">"MongoDB"</span>,</p>
-                <p className="pl-4"><span className="text-mint-cyan">"cache"</span>: <span className="text-[#8EF0B4]">"Redis"</span>,</p>
-                <p className="pl-4"><span className="text-mint-cyan">"test_coverage"</span>: <span className="text-[#F2C464]">"90%+"</span></p>
-                <p className="text-[#6E817A]">{'}'}</p>
+                <p className="mt-3 text-ink-faint">{'{'}</p>
+                <p className="pl-4"><span className="text-mint-cyan">"status"</span>: <span className="text-mint-bright">"UP"</span>,</p>
+                <p className="pl-4"><span className="text-mint-cyan">"auth"</span>: <span className="text-mint-bright">"JWT + RBAC"</span>,</p>
+                <p className="pl-4"><span className="text-mint-cyan">"storage"</span>: <span className="text-mint-bright">"MongoDB"</span>,</p>
+                <p className="pl-4"><span className="text-mint-cyan">"cache"</span>: <span className="text-mint-bright">"Redis"</span>,</p>
+                <p className="pl-4"><span className="text-mint-cyan">"test_coverage"</span>: <span className="text-[#B45309]">"90%+"</span></p>
+                <p className="text-ink-faint">{'}'}</p>
                 <p className="mt-3">
-                  <span className="text-mint-bright">$</span> <span className="inline-block w-2.5 h-4 bg-mint/70 animate-blink align-middle" />
+                  <span className="text-mint font-semibold">$</span> <span className="inline-block w-2.5 h-4 bg-mint/60 animate-blink align-middle" />
                 </p>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-8 flex-col items-center gap-1 text-[#6E817A] hover:text-mint-bright transition-colors"
+        className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-8 flex-col items-center gap-1 text-ink-faint hover:text-mint-bright transition-colors"
         aria-label="Scroll to About"
       >
         <span className="font-mono text-[10px] uppercase tracking-widest">scroll</span>

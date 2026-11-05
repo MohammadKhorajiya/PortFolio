@@ -27,10 +27,10 @@ export default function Skills() {
           className="space-y-4 mb-14 text-center"
         >
           <span className="kicker">Tech Stack</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
             Skills &amp; <span className="text-gradient">Tooling</span>
           </h2>
-          <p className="text-sm text-[#8B9C94] max-w-xl mx-auto">
+          <p className="text-sm text-ink-muted max-w-xl mx-auto">
             The Java backend toolkit I use to design, secure, test and ship production-grade APIs.
           </p>
         </motion.div>
@@ -43,11 +43,11 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: catIdx * 0.08 }}
-              className="glass-card p-7 hover:border-mint/25"
+              className="glass-card p-7 hover:border-mint/30 hover:shadow-lg"
             >
               <div className="flex items-baseline justify-between gap-4 mb-6">
-                <h3 className="font-extrabold text-[#F2F6F3] text-lg">{category.name}</h3>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A] text-right">
+                <h3 className="font-extrabold text-ink text-lg">{category.name}</h3>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-ink-faint text-right">
                   {category.description}
                 </span>
               </div>
@@ -58,16 +58,16 @@ export default function Skills() {
                   return (
                     <div key={skill.name}>
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="flex items-center gap-2.5 text-[13px] font-semibold text-[#D5DEDA]">
-                          <Icon className={`w-4 h-4 ${skill.primary ? 'text-mint-bright' : 'text-[#6E817A]'}`} />
+                        <span className="flex items-center gap-2.5 text-[13px] font-semibold text-ink">
+                          <Icon className={`w-4 h-4 ${skill.primary ? 'text-mint' : 'text-ink-faint'}`} />
                           {skill.name}
                           {skill.primary && (
-                            <span className="font-mono text-[9px] uppercase tracking-wider text-mint-bright bg-mint/10 border border-mint/25 rounded px-1.5 py-0.5">core</span>
+                            <span className="font-mono text-[9px] uppercase tracking-wider text-mint-bright bg-mint/[0.07] border border-mint/20 rounded px-1.5 py-0.5">core</span>
                           )}
                         </span>
-                        <span className="font-mono text-[11px] text-[#6E817A]">{skill.level}%</span>
+                        <span className="font-mono text-[11px] text-ink-faint">{skill.level}%</span>
                       </div>
-                      <div className="h-1.5 rounded-full bg-white/[0.05] overflow-hidden">
+                      <div className="h-1.5 rounded-full bg-paper-soft overflow-hidden border border-paper-line/60">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}

@@ -16,10 +16,10 @@ export default function App() {
   const { personal } = portfolioData;
 
   return (
-    <div className="min-h-screen text-[#E8EDEA] font-sans relative selection:bg-mint/30">
-      {/* Ambient glow accents */}
+    <div className="min-h-screen bg-paper text-ink font-sans relative selection:bg-mint/20">
+      {/* Soft ambient tints */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-mint/[0.07] blur-[140px] animate-pulse-glow" />
+        <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-mint/[0.06] blur-[140px] animate-pulse-glow" />
         <div className="absolute top-1/3 -right-52 w-[480px] h-[480px] rounded-full bg-mint-cyan/[0.05] blur-[140px] animate-pulse-glow" />
       </div>
 
@@ -29,7 +29,7 @@ export default function App() {
           href={personal.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-[#9FB6AC] hover:text-mint-bright hover:border-mint/50 transition-all hover:-translate-y-0.5"
+          className="p-2.5 rounded-xl bg-white border border-paper-line text-ink-muted hover:text-mint-bright hover:border-mint/40 hover:shadow-md transition-all hover:-translate-y-0.5"
           aria-label="GitHub"
         >
           <Github className="w-4 h-4" />
@@ -38,14 +38,14 @@ export default function App() {
           href={personal.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-[#9FB6AC] hover:text-mint-bright hover:border-mint/50 transition-all hover:-translate-y-0.5"
+          className="p-2.5 rounded-xl bg-white border border-paper-line text-ink-muted hover:text-mint-bright hover:border-mint/40 hover:shadow-md transition-all hover:-translate-y-0.5"
           aria-label="LinkedIn"
         >
           <Linkedin className="w-4 h-4" />
         </a>
         <a
           href={`mailto:${personal.email}`}
-          className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-[#9FB6AC] hover:text-mint-bright hover:border-mint/50 transition-all hover:-translate-y-0.5"
+          className="p-2.5 rounded-xl bg-white border border-paper-line text-ink-muted hover:text-mint-bright hover:border-mint/40 hover:shadow-md transition-all hover:-translate-y-0.5"
           aria-label="Email"
         >
           <Mail className="w-4 h-4" />

@@ -25,7 +25,7 @@ export default function About() {
           className="space-y-4 mb-14"
         >
           <span className="kicker"><ArrowUpRight className="w-3 h-3" /> About Me</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
             Backend engineer focused on <span className="text-gradient">security &amp; scale</span>.
           </h2>
         </motion.div>
@@ -39,7 +39,7 @@ export default function About() {
             className="space-y-5"
           >
             {paragraphs.map((text, i) => (
-              <p key={i} className="text-[15px] leading-relaxed text-[#B9C7C0]">
+              <p key={i} className="text-[15px] leading-relaxed text-ink-soft">
                 {text}
               </p>
             ))}
@@ -58,12 +58,12 @@ export default function About() {
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {focus.map(({ icon: Icon, label, desc }) => (
-              <div key={label} className="glass-card p-5 hover:border-mint/30 hover:bg-white/[0.05] group">
-                <div className="w-10 h-10 rounded-xl bg-mint/10 border border-mint/25 flex items-center justify-center text-mint-bright mb-4 group-hover:scale-110 transition-transform">
+              <div key={label} className="glass-card p-5 hover:border-mint/40 hover:shadow-lg hover:-translate-y-1 group">
+                <div className="w-10 h-10 rounded-xl bg-mint/10 border border-mint/20 flex items-center justify-center text-mint mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#E8EDEA] text-sm">{label}</h3>
-                <p className="text-xs text-[#8B9C94] mt-2 leading-relaxed">{desc}</p>
+                <h3 className="font-bold text-ink text-sm">{label}</h3>
+                <p className="text-xs text-ink-muted mt-2 leading-relaxed">{desc}</p>
               </div>
             ))}
           </motion.div>

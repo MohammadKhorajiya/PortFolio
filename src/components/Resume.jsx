@@ -22,26 +22,26 @@ export default function Resume() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto glass-card !bg-[#0B1210]/80 rounded-3xl p-8 sm:p-12 relative overflow-hidden hover:border-mint/25"
+        className="max-w-5xl mx-auto glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden hover:border-mint/30 hover:shadow-xl"
       >
         {/* Gradient edge */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-mint/70 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-mint via-mint-teal to-mint-cyan" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8 space-y-6">
             <div className="space-y-3">
               <span className="kicker"><FileText className="w-3 h-3" /> Resume 2026</span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#F2F6F3]">
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-ink">
                 {personal.name} — <span className="text-gradient">{personal.role}</span>
               </h2>
-              <p className="text-sm text-[#8B9C94]">
+              <p className="text-sm text-ink-muted">
                 One-page summary of experience, projects, skills and education.
               </p>
             </div>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
               {highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2.5 text-[13px] text-[#B9C7C0]">
+                <li key={h} className="flex items-start gap-2.5 text-[13px] text-ink-soft">
                   <span className="font-mono text-mint text-sm leading-tight">✓</span>
                   <span>{h}</span>
                 </li>
@@ -49,7 +49,7 @@ export default function Resume() {
             </ul>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col gap-4 lg:border-l lg:border-white/[0.07] lg:pl-10">
+          <div className="lg:col-span-4 flex flex-col gap-4 lg:border-l lg:border-paper-line lg:pl-10">
             <a
               href={personal.resumeUrl}
               download="Mohammad_Khorajiya_Resume.pdf"
@@ -67,7 +67,7 @@ export default function Resume() {
               <ExternalLink className="w-4 h-4" />
               <span>View PDF</span>
             </a>
-            <p className="font-mono text-[10px] text-[#6E817A] text-center pt-1">PDF · Updated Nov 2026</p>
+            <p className="font-mono text-[10px] text-ink-faint text-center pt-1">PDF · Updated Nov 2026</p>
           </div>
         </div>
       </motion.div>

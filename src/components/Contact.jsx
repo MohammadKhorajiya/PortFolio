@@ -32,10 +32,10 @@ export default function Contact() {
           className="space-y-4 mb-14 text-center"
         >
           <span className="kicker">Get In Touch</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F2F6F3]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
             Let's build something <span className="text-gradient">reliable</span>.
           </h2>
-          <p className="text-sm text-[#8B9C94] max-w-xl mx-auto">
+          <p className="text-sm text-ink-muted max-w-xl mx-auto">
             Hiring for a backend role or need a Spring Boot API built right? My inbox is open.
           </p>
         </motion.div>
@@ -54,15 +54,15 @@ export default function Contact() {
               return (
                 <Wrapper
                   key={label}
-                  {...(href ? { href, target: href.startsWith('http') ? '_blank' : undefined, rel: 'noopener noreferrer' } : {})}
-                  className="glass-card p-5 flex items-center gap-4 hover:border-mint/30 hover:bg-white/[0.05] transition-all group block"
+                  {...(href ? { href, rel: 'noopener noreferrer' } : {})}
+                  className="glass-card p-5 flex items-center gap-4 hover:border-mint/40 hover:shadow-lg transition-all group block"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-mint/10 border border-mint/25 flex items-center justify-center text-mint-bright group-hover:scale-110 transition-transform shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-mint/10 border border-mint/20 flex items-center justify-center text-mint group-hover:scale-110 transition-transform shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <div className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A]">{label}</div>
-                    <div className="text-sm font-bold text-[#E8EDEA] truncate">{value}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-ink-faint">{label}</div>
+                    <div className="text-sm font-bold text-ink truncate">{value}</div>
                   </div>
                 </Wrapper>
               );
@@ -73,7 +73,7 @@ export default function Contact() {
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#9FB6AC] hover:text-mint-bright hover:border-mint/40 transition-all"
+                className="w-11 h-11 rounded-xl bg-paper-soft border border-paper-line flex items-center justify-center text-ink-muted hover:text-mint-bright hover:border-mint/40 transition-all"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -82,12 +82,12 @@ export default function Contact() {
                 href={personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#9FB6AC] hover:text-mint-bright hover:border-mint/40 transition-all"
+                className="w-11 h-11 rounded-xl bg-paper-soft border border-paper-line flex items-center justify-center text-ink-muted hover:text-mint-bright hover:border-mint/40 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#6E817A] ml-1">Elsewhere</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-ink-faint ml-1">Elsewhere</span>
             </div>
           </motion.div>
 
@@ -98,11 +98,11 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             onSubmit={handleSubmit}
-            className="lg:col-span-7 glass-card p-7 sm:p-8 space-y-5 hover:border-mint/25"
+            className="lg:col-span-7 glass-card p-7 sm:p-8 space-y-5 hover:border-mint/30 hover:shadow-lg"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Name</label>
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-ink-faint mb-2">Name</label>
                 <input
                   type="text"
                   required
@@ -113,7 +113,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Email</label>
+                <label className="block font-mono text-[10px] uppercase tracking-wider text-ink-faint mb-2">Email</label>
                 <input
                   type="email"
                   required
@@ -126,7 +126,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block font-mono text-[10px] uppercase tracking-wider text-[#6E817A] mb-2">Message</label>
+              <label className="block font-mono text-[10px] uppercase tracking-wider text-ink-faint mb-2">Message</label>
               <textarea
                 required
                 rows={5}
@@ -141,7 +141,7 @@ export default function Contact() {
               <Send className="w-4 h-4" />
               <span>Send Message</span>
             </button>
-            <p className="text-center font-mono text-[10px] text-[#5C6E66]">
+            <p className="text-center font-mono text-[10px] text-ink-faint">
               Opens your mail app addressed to {personal.email}
             </p>
           </motion.form>

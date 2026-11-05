@@ -33,17 +33,17 @@ export default function Navbar() {
       <div
         className={`flex items-center justify-between gap-6 max-w-4xl w-full sm:w-auto px-5 py-2.5 rounded-2xl transition-all duration-300 ${
           scrolled
-            ? 'bg-[#0B1210]/85 backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)]'
+            ? 'bg-white/85 backdrop-blur-xl border border-paper-line shadow-[0_8px_30px_-12px_rgba(35,41,37,0.15)]'
             : 'bg-transparent border border-transparent'
         }`}
       >
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2.5 shrink-0">
-          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-mint to-mint-cyan flex items-center justify-center font-mono font-bold text-[13px] text-[#04110B]">
+          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-mint to-mint-cyan flex items-center justify-center font-mono font-bold text-[13px] text-white">
             MK
           </span>
-          <span className="font-mono text-sm font-semibold text-[#E8EDEA] hidden sm:block">
-            mohammad<span className="text-mint-bright">()</span>
+          <span className="font-mono text-sm font-semibold text-ink hidden sm:block">
+            mohammad<span className="text-mint">()</span>
           </span>
         </a>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={`relative px-3 py-1.5 text-[13px] font-semibold rounded-lg transition-colors ${
-                  isActive ? 'text-mint-bright' : 'text-[#9FB6AC] hover:text-[#E8EDEA]'
+                  isActive ? 'text-mint-bright' : 'text-ink-muted hover:text-ink'
                 }`}
               >
                 {item.name}
@@ -77,7 +77,7 @@ export default function Navbar() {
           <a
             href={personal.resumeUrl}
             download="Mohammad_Khorajiya_Resume.pdf"
-            className="hidden md:inline-flex items-center gap-2 rounded-lg bg-mint text-[#04110B] font-bold text-xs px-4 py-2 hover:bg-mint-bright transition-colors shadow-[0_0_18px_rgba(16,185,129,0.3)]"
+            className="hidden md:inline-flex items-center gap-2 rounded-lg bg-mint text-white font-bold text-xs px-4 py-2 hover:bg-mint-bright transition-colors shadow-[0_6px_18px_-6px_rgba(5,150,105,0.5)]"
           >
             <Download className="w-3.5 h-3.5" />
             Resume
@@ -85,7 +85,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#E8EDEA] hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg text-ink hover:bg-paper-soft transition-colors"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -100,7 +100,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden fixed top-[72px] left-4 right-4 bg-[#0B1210]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl z-40"
+            className="md:hidden fixed top-[72px] left-4 right-4 bg-white/95 backdrop-blur-xl border border-paper-line rounded-2xl p-4 shadow-xl z-40"
           >
             <div className="flex flex-col gap-1.5">
               {navLinks.map((item) => (
@@ -108,7 +108,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2.5 rounded-xl text-[#D5DEDA] hover:bg-mint/10 hover:text-mint-bright font-semibold text-sm transition-colors"
+                  className="px-4 py-2.5 rounded-xl text-ink-soft hover:bg-mint/10 hover:text-mint-bright font-semibold text-sm transition-colors"
                 >
                   {item.name}
                 </a>
@@ -116,7 +116,7 @@ export default function Navbar() {
               <a
                 href={personal.resumeUrl}
                 download="Mohammad_Khorajiya_Resume.pdf"
-                className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-mint text-[#04110B] font-bold text-sm px-4 py-3"
+                className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-mint text-white font-bold text-sm px-4 py-3"
               >
                 <Download className="w-4 h-4" />
                 Download Resume

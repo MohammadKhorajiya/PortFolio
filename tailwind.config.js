@@ -7,17 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
+        paper: {
+          DEFAULT: '#F8F7F4',
+          soft: '#F1EFE9',
+          card: '#FFFFFF',
+          line: '#E5E2DA'
+        },
         ink: {
-          DEFAULT: '#070B0A',
-          soft: '#0B1210',
-          card: '#0E1714',
-          line: '#1C2A25'
+          DEFAULT: '#232925',
+          soft: '#4A524B',
+          muted: '#77807A',
+          faint: '#9AA39C'
         },
         mint: {
-          DEFAULT: '#10B981',
-          bright: '#34D399',
-          teal: '#2DD4BF',
-          cyan: '#22D3EE'
+          DEFAULT: '#059669',
+          bright: '#047857',
+          teal: '#0D9488',
+          cyan: '#0891B2'
         }
       },
       fontFamily: {
